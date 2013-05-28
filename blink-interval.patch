@@ -1,0 +1,11 @@
+--- a/src/feature.h	2013-05-28 15:54:50.336585181 +0700
++++ b/src/feature.h	2013-05-28 15:54:52.419930280 +0700
+@@ -48,7 +48,7 @@
+ /*
+  * The cursor blink interval, in seconds.
+  */
+-#define CURSOR_BLINK_INTERVAL 0.5
++#define CURSOR_BLINK_INTERVAL 0.15
+ 
+ /*
+  * The text blink interval, in seconds.

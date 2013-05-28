@@ -1,0 +1,26 @@
+commit ed90f70278b90aa02ca305ef23512ca34bd3c969
+Author: Stanislav Seletskiy <s.seletskiy@office.ngs.ru>
+Date:   Wed Jan 18 14:56:10 2012 +0700
+
+    draw text in middle of line, not on top
+    
+    if lineSpace > 0
+
+diff --git a/src/main.C b/src/main.C
+index f16de2e..7746fbc 100644
+--- a/src/main.C
++++ b/src/main.C
+@@ -818,7 +818,12 @@ rxvt_term::set_fonts ()
+   delete fontset[0];
+   fontset[0] = fs;
+ 
+-  prop = (*fs)[rxvt_fontset::firstFont]->properties ();
++  rxvt_font *first_font = (*fs)[rxvt_fontset::firstFont];
++
++  first_font->ascent += lineSpace;
++
++  prop = first_font->properties ();
++  prop.height += lineSpace;
+   prop.width = max (prop.width + letterSpace, 1);
+ 
+   fs->set_prop (prop, false);
